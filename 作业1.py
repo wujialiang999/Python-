@@ -1,3 +1,6 @@
+"""
+作业1.1求亲米数
+"""
 # -*- coding: utf-8 -*-
 #py3
  
@@ -40,3 +43,27 @@ for i in range(1,num):
     res=fac(i)
     if i!=res and fac(res)==i and i<res :
         print("{}-{}".format(i,res))
+#---------------------------------------------------------------------------------------------------------------
+"""
+作业1.2求默尼森系数
+"""
+import math
+def prime(num):
+    if num<=1:
+        return False
+    else:
+        for i in range(2,int(math.sqrt(num))+1):
+            if(num%i==0):
+                return False
+        return True
+
+def monisen(no):
+    s=0
+    for i in range(1,31):
+        if(prime(i)):
+            M=2**i-1
+            if(prime(M)):
+                s=s+1
+        if(s==no):
+            return M
+monisen(4)
